@@ -1,0 +1,35 @@
+_name_: "efficientnet.yaml"
+model:
+  in_channel: 3
+  num_classes: 3
+  model_name: "efficientnet-v2"
+  resume: True
+  weights: "assets/weights/eff_v2_pretrained.pt"
+#  height: 240
+#  width: 240
+
+train:
+  batch_size: 24
+  max_epoch: 30
+
+test:
+  batch_size: 24
+
+solver:
+  seed: 42
+  device: "cuda:0"
+  lr: 0.001
+
+datasets:
+#  name: "***"
+  images_dir: "data/images"
+  train_file: "data/train.txt"
+  val_file: "data/val.txt"
+
+save:
+  log_dir: "assets/logs"
+  weight_dir: "assets/weights"
+  val_per_epoch: 2
+
+
+
